@@ -10,9 +10,63 @@ const Index = () => {
   const sessions = [
     [
       { name: "Book Binding Techniques", info: "34 / 2" },
+      // { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      // { name: "Book Binding Techniques", info: "34 / 2" },
       { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      // { name: "Book Binding Techniques", info: "34 / 2" },
+      // { name: "Time Tracking Project", info: "20 / 1" },
       { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      // { name: "Book Binding Techniques", info: "34 / 2" },
+      // { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
       { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      { name: "Book Binding Techniques", info: "34 / 2" },
+      // { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      // { name: "Book Binding Techniques", info: "34 / 2" },
+      { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      // { name: "Book Binding Techniques", info: "34 / 2" },
+      // { name: "Time Tracking Project", info: "20 / 1" },
+      { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      // { name: "Book Binding Techniques", info: "34 / 2" },
+      // { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
+      { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      { name: "Book Binding Techniques", info: "34 / 2" },
+      // { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
+    ],
+    [
+      // { name: "Book Binding Techniques", info: "34 / 2" },
+      { name: "Time Tracking Project", info: "20 / 1" },
+      // { name: "Blot example templates", info: "22 / 2" },
+      // { name: "New Demos Toronto", info: "22 / 2" },
     ],
     [{ name: "Cargo design philosophy", info: "31 / 2" }],
     [
@@ -30,12 +84,12 @@ const Index = () => {
     ],
     [
       { name: "New Computer Manifesto", info: "22 / 2" },
-      { name: "Motion Inspiration", info: "31 / 2" },
+      // { name: "Motion Inspiration", info: "31 / 2" },
     ],
     [
       { name: "Pinterest Spaces", info: "22 / 2" },
-      { name: "State Machines for Interfaces", info: "31 / 2" },
-      { name: "Arc's link sharing", info: "31 / 2" },
+      // { name: "State Machines for Interfaces", info: "31 / 2" },
+      // { name: "Arc's link sharing", info: "31 / 2" },
     ],
   ];
 
