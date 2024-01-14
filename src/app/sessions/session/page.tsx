@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { AnimatePresence, motion, useAnimate } from "framer-motion";
+import { AnimatePresence, motion, useAnimate, useTime } from "framer-motion";
 import usePressHandlers from "@/hooks/use-press-handlers";
 
 const Auxiliary = ({
@@ -56,7 +56,15 @@ const Auxiliary = ({
   );
 };
 
-const Session = ({ name, info }: { name: string; info: string }) => {
+const Session = ({
+  name,
+  info,
+  handleReorder,
+}: {
+  name: string;
+  info: string;
+  handleReorder: (name: string) => void;
+}) => {
   const [isReplaced, setIsReplaced] = useState(false);
   const [replaceScope, animateReplace] = useAnimate();
 
@@ -72,6 +80,17 @@ const Session = ({ name, info }: { name: string; info: string }) => {
           onComplete: () => {
             console.log("Replaced");
             setIsReplaced(true);
+            setTimeout(() => {
+              handleReorder(name);
+              animateReplace(
+                replaceScope.current,
+                { width: "0%" },
+                {
+                  duration: 0,
+                },
+              );
+              setIsReplaced(false);
+            }, 1000);
           },
         },
       );
@@ -117,7 +136,7 @@ const Session = ({ name, info }: { name: string; info: string }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <div
+    <motion.div
       className="relative flex h-[36px] w-[404px] rounded bg-[#151515] hover:bg-[#202020]"
       onMouseDown={onPressStart}
       onMouseUp={onPressEnd}
@@ -128,6 +147,7 @@ const Session = ({ name, info }: { name: string; info: string }) => {
       }}
       onTouchStart={onPressStart}
       onTouchEnd={onPressEnd}
+      layout
     >
       <div
         className="absolute h-full rounded bg-[#2F2F2F]"
@@ -137,22 +157,53 @@ const Session = ({ name, info }: { name: string; info: string }) => {
         <div className="ml-3">{name}</div>
         <Auxiliary isReplaced={isReplaced} isHovered={hover} info={info} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Index = () => {
+  const [sessions, setSessions] = useState([
+    [
+      { name: "Book Binding Techniques", info: "34 / 2" },
+      { name: "Time Tracking Project", info: "20 / 1" },
+    ],
+    [
+      { name: "Courage to be disliked", info: "22 / 2" },
+      { name: "The Hidden Life of Trees", info: "31 / 2" },
+    ],
+  ]);
+
+  const handleReorder = (name: string) => {
+    const session = sessions.flat().find((s) => s.name === name);
+    if (!session) return;
+    const newSessions = sessions.map((group) =>
+      group.filter((s) => s.name !== name),
+    );
+    newSessions[0].unshift(session);
+    setSessions(newSessions);
+  };
+
   return (
     <div className="flex h-screen w-screen select-none flex-col items-center justify-center bg-[#151515]">
-      <div className="flex flex-col">
-        <div
-          className="ml-3 h-[30px] text-[12px]
-          text-[#636363]"
-        >
-          Yesterday
-        </div>
-        <Session name={"Book Binding Techniques"} info={"34 / 2"} />
-        <Session name={"Time Tracking Project"} info={"20 / 1"} />
+      <div className="flex min-h-[400px] flex-col">
+        {sessions.map((group, index) => (
+          <div key={index}>
+            <div
+              className="ml-3 mt-4 h-[30px]
+          text-[12px] text-[#636363]"
+            >
+              {index + 4}th January
+            </div>
+            {group.map((session) => (
+              <Session
+                name={session.name}
+                info={session.info}
+                key={session.name}
+                handleReorder={handleReorder}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

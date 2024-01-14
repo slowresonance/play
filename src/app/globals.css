@@ -32,3 +32,49 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.ssn-theme {
+  --os-size: 10px !important;
+  --os-padding-perpendicular: 2px !important;
+  --os-padding-axis: 2px !important;
+  --os-track-border-radius: 10px !important;
+  --os-handle-interactive-area-offset: 4px !important;
+  --os-handle-border-radius: 10px !important;
+
+  --os-handle-bg: rgba(255, 255, 255, 0.15) !important;
+  --os-handle-bg-hover: rgba(255, 255, 255, 0.2) !important;
+  --os-handle-bg-active: rgba(255, 255, 255, 0.25) !important;
+
+  --os-track-bg: none !important;
+  --os-track-bg-hover: none !important;
+  --os-track-bg-active: none !important;
+  --os-track-border: none !important;
+  --os-track-border-hover: none !important;
+  --os-track-border-active: none !important;
+
+  --os-handle-border: none !important;
+  --os-handle-border-hover: none !important;
+  --os-handle-border-active: none !important;
+  --os-handle-min-size: 33px !important;
+  --os-handle-max-size: none !important;
+  --os-handle-perpendicular-size: 100% !important;
+  --os-handle-perpendicular-size-hover: 100% !important;
+  --os-handle-perpendicular-size-active: 100% !important;
+}
+
+.title-bg {
+  background: rgb(21 21 21);
+}
+
+.overflow-gradient-top {
+  background: linear-gradient(
+    to bottom,
+    rgb(21, 21, 21),
+    rgb(21 21 21 / 98%),
+    rgb(21 21 21 / 94%),
+    rgb(21 21 21 / 92%),
+    rgb(21 21 21 / 42%),
+    rgb(21 21 21 / 0%)
+  );
+  /* background: rgb(21 21 21 / 94%); */
+}
