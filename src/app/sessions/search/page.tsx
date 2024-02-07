@@ -38,55 +38,28 @@ const Page = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen cursor-pointer select-none flex-col items-center justify-center gap-2 bg-[#151515]">
-      <div className="flex gap-20">
-        <div className="flex w-[402px] items-center justify-between gap-2">
+    <div className="flex h-[1000px] w-screen cursor-pointer select-none flex-col items-center justify-center gap-2 bg-[#151515]">
+      <div className="flex flex-wrap justify-center md:gap-10">
+        <div
+          className="mt-4 flex w-[360px] items-center justify-between gap-2"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
           <div className="flex gap-2">
             <div className="h-[34px] w-[34px] rounded bg-[#292929]"></div>
             <motion.div
               className="h-[34px] rounded bg-[#292929]"
               initial={{ width: 34 }}
-              animate={isExpanded ? { width: 318 } : { width: 34 }}
+              animate={isExpanded ? { width: 276 } : { width: 34 }}
               whileTap={{ scale: 0.95 }}
               transition={getTransition()}
             ></motion.div>
           </div>
-          <div
-            className="h-[34px] w-[34px] cursor-pointer rounded bg-[#292929] hover:bg-[#292929]"
-            onClick={() => setIsExpanded(!isExpanded)}
-          ></div>
+          <div className="h-[34px] w-[34px] cursor-pointer rounded bg-[#292929] hover:bg-[#292929]"></div>
         </div>
         <div className="text-[#ededed]">
-          <div className="w-[402px]">
-            <RadioGroup value={mode}>
-              <div
-                className="mb-2 flex items-center gap-2"
-                onClick={() => {
-                  setMode("duration");
-                }}
-              >
-                <RadioGroupItem value="duration" id="duration" />
-                <Label htmlFor="duration">Duration and Bounce</Label>
-              </div>
-              <div
-                className="mb-2 flex items-center gap-2"
-                onClick={() => {
-                  setMode("damping");
-                }}
-              >
-                <RadioGroupItem value="damping" id="damping" />
-                <Label htmlFor="damping">Damping, mass and stiffness</Label>
-              </div>
-            </RadioGroup>
-            <div className="mt-2 text-[13px]">
-              Note: duration and bounce will be overridden if stiffness, damping
-              or mass are set.
-            </div>
-          </div>
-
           <div
             className={cn(
-              "mt-10 w-[402px] border border-dashed border-[#292929] p-4 text-[14px] text-[#ededed]",
+              "mt-10 w-[360px] border border-dashed border-[#292929] p-4 text-[14px] text-[#ededed]",
               {
                 "border-[#676767]": mode === "duration",
               },
@@ -113,7 +86,7 @@ const Page = () => {
 
           <div
             className={cn(
-              "mt-10 w-[402px] border border-dashed border-[#292929] p-4 text-[14px] text-[#ededed]",
+              "mt-10 w-[360px] border border-dashed border-[#292929] p-4 text-[14px] text-[#ededed]",
               {
                 "border-[#676767]": mode === "damping",
               },
@@ -145,7 +118,7 @@ const Page = () => {
             />
           </div>
 
-          <div className="mt-10 w-[402px] border border-[#292929] p-4 text-[14px] text-[#ededed]">
+          <div className="mt-10 w-[360px] border border-[#292929] p-4 text-[14px] text-[#ededed]">
             <div className="mb-2 mt-8 first-of-type:mt-0">
               velocity: {velocity}
             </div>
@@ -169,6 +142,32 @@ const Page = () => {
               step={0.1}
               onValueChange={([value]) => setRestDelta(value)}
             />
+          </div>
+          <div className="mt-10 w-[360px] p-4">
+            <RadioGroup value={mode}>
+              <div
+                className="mb-2 flex items-center gap-2"
+                onClick={() => {
+                  setMode("duration");
+                }}
+              >
+                <RadioGroupItem value="duration" id="duration" />
+                <Label htmlFor="duration">Duration and Bounce</Label>
+              </div>
+              <div
+                className="mb-2 flex items-center gap-2"
+                onClick={() => {
+                  setMode("damping");
+                }}
+              >
+                <RadioGroupItem value="damping" id="damping" />
+                <Label htmlFor="damping">Damping, mass and stiffness</Label>
+              </div>
+            </RadioGroup>
+            <div className="mt-2 text-[13px]">
+              Note: duration and bounce will be overridden if stiffness, damping
+              or mass are set.
+            </div>
           </div>
         </div>
       </div>
