@@ -14,7 +14,7 @@ const Auxiliary = ({
   info: string;
 }) => {
   return (
-    <motion.div className="mr-3 flex text-[12px] text-[#ffffff] opacity-30">
+    <motion.div className="mr-3 flex text-[12px] text-[#636363]">
       {isHovered || isReplaced ? (
         <AnimatePresence mode="wait">
           {!isReplaced && (
